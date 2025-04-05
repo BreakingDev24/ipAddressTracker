@@ -19,7 +19,7 @@ const getLocation = async () => {
   try {
     const resGeo = await fetch(url);
     if (!resGeo.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-    const res = await geo.json();
+    const res = await resGeo.json();
     const {
       ip,
       isp,
