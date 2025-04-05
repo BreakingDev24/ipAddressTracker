@@ -1,8 +1,13 @@
 import "./style.css";
 import viteLogo from "/vite.svg";
 
-const getMap = () => {
-  const map = L.map("map").setView([51.505, -0.09], 13);
+const ipAddress = document.querySelector(".ipAddress_text");
+const location = document.querySelector(".location_text");
+const timezoneText = document.querySelector(".timezone_text");
+const ispText = document.querySelector(".isp_text");
+
+const getMap = (lat, lng) => {
+  const map = L.map("map").setView([lat, lng], 13);
 
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
@@ -10,7 +15,7 @@ const getMap = () => {
       '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   }).addTo(map);
 
-  const marker = L.marker([51.5, -0.09]).addTo(map);
+  const marker = L.marker([lat, lng]).addTo(map);
 };
 
 const getLocation = async () => {
@@ -23,17 +28,26 @@ const getLocation = async () => {
     const {
       ip,
       isp,
-      location: { city, country, lat, lng },
+      location: { city, country, timezone, lat, lng },
     } = res;
     console.log(res);
-    return { ip, isp, city, country, lat, lng };
+    showData(ip, isp, timezone, city, country);
+    getMap(lat, lng);
+    // return { ip, isp, city, country, lat, lng };
   } catch (error) {
     console.error(`Error while retrieving the IP`, error.message);
   }
 };
 
-console.log(import.meta.env.VITE_API_KEY);
+const showData = (ip, isp, timezone, city, country) => {
+  ipAddress.textContent = ip;
+  location.textContent = `${city}, ${country}`;
+  timezoneText.textContent = timezone;
+  ispText.textContent = isp;
+};
+
+// console.log(import.meta.env.VITE_API_KEY);
 
 getLocation();
 
-getMap();
+// getMap();
