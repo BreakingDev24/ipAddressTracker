@@ -28,7 +28,12 @@ const getInputType = (input) => {
 
 const getMap = (lat, lng) => {
   if (!map) {
-    map = L.map("map").setView([lat, lng], 13);
+    map = L.map("map", {
+      zoomControl: false,
+      dragging: false,
+      doubleClickZoom: false,
+      scrollWheelZoom: false,
+    }).setView([lat, lng], 16);
 
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
