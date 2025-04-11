@@ -26,24 +26,27 @@
   <body>
     <div id="app">
       <header class="header">
+        <h1 class="title">IP Address Tracker</h1>
         <form id="ipForm" class="ipForm">
           <input type="text" class="formInput" required />
-          <button type="submit" form="ipForm">submit</button>
+          <button type="submit" form="ipForm">
+            <img src="./src/images/icon-arrow.svg" alt="" />
+          </button>
         </form>
         <div class="infoContainer">
-          <div>
+          <div class="info">
             <h4>IP ADDRESS</h4>
             <p class="ipAddress_text">192.174.101</p>
           </div>
-          <div>
+          <div class="info">
             <h4>LOCATION</h4>
             <p class="location_text">Somewhere in the world</p>
           </div>
-          <div>
+          <div class="info">
             <h4>TIMEZONE</h4>
             <p class="timezone_text">UTC -05:00</p>
           </div>
-          <div>
+          <div class="info">
             <h4>ISP</h4>
             <p class="isp_text">FuckStarlink</p>
           </div>
