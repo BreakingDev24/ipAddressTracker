@@ -77,7 +77,7 @@ const getLocation = async (input = "") => {
 const showData = (ip, isp, timezone, city, country) => {
   ipAddress.textContent = ip;
   location.textContent = `${city}, ${country}`;
-  timezoneText.textContent = timezone;
+  timezoneText.textContent = `UTC ${timezone}`;
   ispText.textContent = isp;
 };
 
