@@ -93,3 +93,21 @@
 #map {
   flex: 1;
 }
+
+@media screen and (min-width: 62.5em) {
+  .header {
+    background-image: url("./images/pattern-bg-desktop.png");
+  }
+
+  .infoContainer {
+    grid-template-columns: repeat(4, 1fr);
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .info {
+    text-align: left;
+  }
+  .info:not(:last-child) {
+    border-right: 1px solid #b81515;
+  }
+}
