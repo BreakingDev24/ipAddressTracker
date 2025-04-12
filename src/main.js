@@ -86,15 +86,17 @@ const showData = (ip, isp, timezone, city, country) => {
   ispText.textContent = isp;
 };
 
-// console.log(import.meta.env.VITE_API_KEY);
-
-getLocation();
-
-ipForm.addEventListener("submit", (e) => {
+const handleSubmit = (e) => {
   e.preventDefault();
   const inputText = formInput.value;
   formInput.value = "";
   getLocation(inputText);
-});
+};
+
+// console.log(import.meta.env.VITE_API_KEY);
+
+getLocation();
+
+ipForm.addEventListener("submit", handleSubmit);
 
 // getMap();
