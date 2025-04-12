@@ -1,7 +1,6 @@
 "use strict";
 
 import "./style.css";
-import viteLogo from "/vite.svg";
 import iconLocation from "./images/icon-location.svg";
 
 // Select DOM elements where data will be displayed
