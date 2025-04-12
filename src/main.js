@@ -2,6 +2,7 @@
 
 import "./style.css";
 import viteLogo from "/vite.svg";
+import iconLocation from "./images/icon-location.svg";
 
 const ipAddress = document.querySelector(".ipAddress_text");
 const location = document.querySelector(".location_text");
@@ -10,6 +11,10 @@ const ispText = document.querySelector(".isp_text");
 
 const ipForm = document.querySelector(".ipForm");
 const formInput = document.querySelector(".formInput");
+
+const costumeMarker = L.icon({
+  iconUrl: iconLocation,
+});
 
 let map;
 let currentMarker;
@@ -45,7 +50,7 @@ const getMap = (lat, lng) => {
   }
 
   if (currentMarker) map.removeLayer(currentMarker);
-  currentMarker = L.marker([lat, lng]).addTo(map);
+  currentMarker = L.marker([lat, lng], { icon: costumeMarker }).addTo(map);
 };
 
 const getLocation = async (input = "") => {
