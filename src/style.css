@@ -118,3 +118,13 @@ body {
     border-right: 1px solid var(--dark-gray);
   }
 }
+
+.footer {
+  color: white;
+  background-color: rgb(40, 40, 99);
+  text-align: center;
+  padding: 1rem 0;
+  a {
+    color: rgb(84, 130, 199);
+  }
+}
