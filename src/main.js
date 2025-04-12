@@ -71,9 +71,9 @@ const getLocation = async (input = "") => {
       location: { city, country, timezone, lat, lng },
     } = res;
     console.log(res);
-    showData(ip, isp, timezone, city, country);
-    getMap(lat, lng);
-    // return { ip, isp, city, country, lat, lng };
+    // showData(ip, isp, timezone, city, country);
+    // getMap(lat, lng);
+    return { ip, isp, city, country, timezone, lat, lng };
   } catch (error) {
     console.error(`Error while retrieving the IP`, error.message);
   }
@@ -86,16 +86,29 @@ const showData = (ip, isp, timezone, city, country) => {
   ispText.textContent = isp;
 };
 
-const handleSubmit = (e) => {
+const renderLocationData = (data) => {
+  const { ip, isp, city, country, timezone, lat, lng } = data;
+  showData(ip, isp, timezone, city, country);
+  getMap(lat, lng);
+};
+
+const renderInitialLocation = async () => {
+  const data = await getLocation();
+  if (data) renderLocationData(data);
+};
+
+const handleSubmit = async (e) => {
   e.preventDefault();
-  const inputText = formInput.value;
+  const inputText = formInput.value.trim();
   formInput.value = "";
-  getLocation(inputText);
+
+  const data = await getLocation(inputText);
+  if (data) renderLocationData(data);
 };
 
 // console.log(import.meta.env.VITE_API_KEY);
 
-getLocation();
+renderInitialLocation();
 
 ipForm.addEventListener("submit", handleSubmit);
 
