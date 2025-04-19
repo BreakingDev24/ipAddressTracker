@@ -26,7 +26,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 30vh;
+  height: 35vh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -84,7 +84,7 @@ body {
 
 .info {
   display: grid;
-  gap: 0.9rem;
+  gap: 0.4rem;
   letter-spacing: 0.1rem;
   h4 {
     color: var(--dark-gray);
@@ -93,7 +93,7 @@ body {
   p {
     color: var(--very-dark-gray);
     font-weight: 500;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -103,6 +103,8 @@ body {
 
 @media screen and (min-width: 62.5em) {
   .header {
+    height: 25vh;
+
     background-image: url("./images/pattern-bg-desktop.png");
   }
 
@@ -113,6 +115,10 @@ body {
   }
   .info {
     text-align: left;
+    gap: 0.5rem;
+    p {
+      font-size: 1.3rem;
+    }
   }
   .info:not(:last-child) {
     border-right: 1px solid var(--dark-gray);
